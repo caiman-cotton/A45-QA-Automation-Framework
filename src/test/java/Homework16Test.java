@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-public class Homework16 extends BaseTest {
+public class Homework16Test extends BaseTest {
     @Test
     public static void registrationNavigation() {
         //ChromeOptions arguments
