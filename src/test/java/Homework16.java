@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
 public class Homework16 extends BaseTest {
     @Test
     public static void registrationNavigation() {
@@ -17,8 +16,8 @@ public class Homework16 extends BaseTest {
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         //set and get URL
-        String url = "https://bbb.testpro.io/";
-        driver.get(url);
+        String link = "https://bbb.testpro.io/";
+        driver.get(link);
         //click registration
         WebElement registration = driver.findElement(By.cssSelector("a[type='submit']"));
         registration.click();
