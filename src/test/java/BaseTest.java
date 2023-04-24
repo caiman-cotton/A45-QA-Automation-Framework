@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
@@ -49,5 +50,66 @@ public class BaseTest {
         playlistName.sendKeys("playlist");
         WebElement enterPlaylist = driver.findElement(By.cssSelector("button[title='Save']"));
         enterPlaylist.click();
+    }
+
+    public void getLink() {
+        String link = "https://bbb.testpro.io/";
+        driver.get(link);}
+
+    public void signInEmail() {
+        WebElement emailField = driver.findElement(By.cssSelector("input[type='email]"));
+        emailField.click();
+        emailField.clear();
+        emailField.sendKeys("caiman.cotton@testpro.io");
+    }
+
+    public void signInPassword() {
+        WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
+        passwordField.click();
+        passwordField.clear();
+        passwordField.sendKeys("te$t$tudent");
+    }
+
+    public void clickLogIn() {
+        WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        loginButton.click();
+    }
+
+    public void searchSong(String song) {
+        String song = "Mid-Air Machine";
+        WebElement searchBar = driver.findElement(By.cssSelector("input[type='search']"));
+        searchBar.click();
+        searchBar.clear();
+        searchBar.sendKeys(song);
+    }
+
+    public void viewAllTheSongs() {
+        WebElement viewAllSongs = driver.findElement(By.cssSelector("button[data-test='view-all-songs-btn']"));
+        viewAllSongs.click();
+    }
+
+    public void chooseFirstSong() {
+        WebElement firstSong = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//tr[@class='song-item']"));
+        firstSong.click();
+    }
+
+    public void addToPlaylist() {
+        WebElement addButton = driver.findElement(By.cssSelector("button[class='btn-add-to']"));
+        addButton.click();
+        WebElement playlistName = driver.findElement(By.cssSelector("input[data-test='new-playlist-name']"));
+        playlistName.click();
+        playlistName.sendKeys("playlist");
+        WebElement enterPlaylist = driver.findElement(By.cssSelector("button[title='Save']"));
+        enterPlaylist.click();
+    }
+
+    public void showsPopUp() {
+        WebElement success = driver.findElement(By.cssSelector("div[class='success show']"));
+        Assert.assertTrue(success.isDisplayed());
+    }
+
+    public void showsPopUpText() {
+        WebElement successText = driver.findElement(By.xpath("//div[(contains(text(), 'Added 1 song into playlist"));
+        Assert.assertTrue(successText.isDisplayed());
     }
 }
