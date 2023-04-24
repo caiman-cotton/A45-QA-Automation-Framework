@@ -5,9 +5,6 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class Homework17Test extends BaseTest {
-    public Homework17Test() {
-    }
-
     @Test
     public void addSongToPlaylist() {
       ChromeOptions options = new ChromeOptions();
