@@ -16,6 +16,7 @@ public class BaseTest {
 
 
     ChromeOptions options = new ChromeOptions();
+
     WebDriver driver = new ChromeDriver(options);
 
     public void getLink(String link) {
