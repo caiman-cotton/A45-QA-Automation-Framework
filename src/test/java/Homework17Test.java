@@ -14,6 +14,7 @@ public class Homework17Test extends BaseTest {
     @Test
     public static void addSongToPlaylist() {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String link = "https://bbb.testpro.io/";
