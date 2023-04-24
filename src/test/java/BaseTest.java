@@ -6,6 +6,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+
+import java.time.Duration;
 
 public class BaseTest {
 
@@ -15,9 +19,16 @@ public class BaseTest {
     }
 
 
+
     ChromeOptions options = new ChromeOptions();
 
     WebDriver driver = new ChromeDriver(options);
+
+    @BeforeMethod
+    public void setupOptions() {
+        options.addArguments("--remote-allow-origins=*");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
 
     public void getLink(String link) {
         driver.get(link);}
@@ -76,5 +87,9 @@ public class BaseTest {
     public void showsPopUpText() {
         WebElement successText = driver.findElement(By.xpath("//div[(contains(text(), 'Added 1 song into playlist"));
         Assert.assertTrue(successText.isDisplayed());
+    }
+    @AfterMethod
+    public void tearDown() {
+        driver.quit();
     }
 }

@@ -1,12 +1,9 @@
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 public class Homework17Test extends BaseTest {
     @Test
     public void addSongToPlaylist() {
-      options.addArguments("--remote-allow-origins=*");
-      driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        setupOptions();
         getLink("https://bbb.testpro.io/");
         signInEmail("caiman.cotton@testpro.io");
         signInPassword("te$t$tudent");
@@ -17,6 +14,6 @@ public class Homework17Test extends BaseTest {
         addToPlaylist("playlist");
         showsPopUp();
         showsPopUpText();
-        driver.quit();
+        tearDown();
     }
 }
