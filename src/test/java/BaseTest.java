@@ -18,22 +18,21 @@ public class BaseTest {
     ChromeOptions options = new ChromeOptions();
     WebDriver driver = new ChromeDriver(options);
 
-    public void getLink() {
-        String link = "https://bbb.testpro.io/";
+    public void getLink(String link) {
         driver.get(link);}
 
-    public void signInEmail() {
+    public void signInEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("input[type='email]"));
         emailField.click();
         emailField.clear();
-        emailField.sendKeys("caiman.cotton@testpro.io");
+        emailField.sendKeys(email);
     }
 
-    public void signInPassword() {
+    public void signInPassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
         passwordField.click();
         passwordField.clear();
-        passwordField.sendKeys("te$t$tudent");
+        passwordField.sendKeys(password);
     }
 
     public void clickLogIn() {
@@ -58,12 +57,12 @@ public class BaseTest {
         firstSong.click();
     }
 
-    public void addToPlaylist() {
+    public void addToPlaylist(String playlist) {
         WebElement addButton = driver.findElement(By.cssSelector("button[class='btn-add-to']"));
         addButton.click();
         WebElement playlistName = driver.findElement(By.cssSelector("input[data-test='new-playlist-name']"));
         playlistName.click();
-        playlistName.sendKeys("playlist");
+        playlistName.sendKeys(playlist);
         WebElement enterPlaylist = driver.findElement(By.cssSelector("button[title='Save']"));
         enterPlaylist.click();
     }

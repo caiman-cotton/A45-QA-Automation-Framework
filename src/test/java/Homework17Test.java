@@ -15,14 +15,14 @@ public class Homework17Test extends BaseTest {
         options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        getLink();
-        signInEmail();
-        signInPassword();
+        getLink("https://bbb.testpro.io/");
+        signInEmail("caiman.cotton@testpro.io");
+        signInPassword("te$t$tudent");
         clickLogIn();
         searchSong("Mid-Air Machine");
         viewAllTheSongs();
         chooseFirstSong();
-        addToPlaylist();
+        addToPlaylist("playlist");
         showsPopUp();
         showsPopUpText();
         driver.quit();
