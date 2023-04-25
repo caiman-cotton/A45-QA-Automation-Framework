@@ -85,7 +85,7 @@ public class BaseTest {
     }
 
     public void showsPopUpText() {
-        WebElement successText = driver.findElement(By.xpath("//div[(contains(text(), 'Added 1 song into" + playlist));
+        WebElement successText = driver.findElement(By.xpath("//div[(contains(text(), 'Added 1 song into playlist"));
         Assert.assertTrue(successText.isDisplayed());
     }
     @AfterMethod
