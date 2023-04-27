@@ -72,10 +72,10 @@ public void clickAddToBtn() throws InterruptedException {
         Thread.sleep(5000);
 }
 public void addToPlaylist(String playlist) throws InterruptedException {
-        WebElement createPlaylist = driver.findElement(By.cssSelector("input[data-test='new-playlist-name']"));
+        WebElement createPlaylist = driver.findElement(By.cssSelector("section#songResultsWrapper input[type='text']"));
         createPlaylist.click();
         createPlaylist.sendKeys(playlist);
-        WebElement savePlaylist = driver.findElement(By.cssSelector("button[title='Save'}"));
+        WebElement savePlaylist = driver.findElement(By.cssSelector("section#songResultsWrapper button[type='submit']"));
         savePlaylist.click();
         Thread.sleep(5000);
 }
