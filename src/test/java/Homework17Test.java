@@ -14,7 +14,7 @@ clickViewAllBtn();
 selectFirstSongBySearch();
 clickAddToBtn();
 addToPlaylist("playlist");
-Assert.assertTrue(getNotificationText().contains(newSongAddedNotificationText + " playlist"));
+Assert.assertTrue(getNotificationText().contains(newSongAddedNotificationText + "playlist"));
 endTest();
 
         }
