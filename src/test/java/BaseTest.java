@@ -50,5 +50,32 @@ public class BaseTest {
         WebElement submitBtn = driver.findElement(By.cssSelector("button[type='submit']"));
         submitBtn.click();
     }
-
+public void searchSongTitle(String songTitle) throws InterruptedException {
+        WebElement searchSong = driver.findElement(By.cssSelector("div#searchForm input[type='search']"));
+        searchSong.click();
+                searchSong.sendKeys(songTitle);
+                Thread.sleep(5000);
+}
+public void selectFirstSongBySearch() throws InterruptedException {
+        WebElement firstSongResult = driver.findElement(By.cssSelector("section#songResultsWrapper tr.song-item td.title"));
+        firstSongResult.click();
+        Thread.sleep(5000);
+}
+public void clickAddToBtn() throws InterruptedException {
+        WebElement addToBtn = driver.findElement(By.cssSelector("button.btn-add-to"));
+        addToBtn.click();
+        Thread.sleep(5000);
+}
+public void addToPlaylist(String playlist) throws InterruptedException {
+        WebElement createPlaylist = driver.findElement(By.cssSelector("input[required='required']"));
+        createPlaylist.click();
+        createPlaylist.sendKeys(playlist);
+        WebElement savePlaylist = driver.findElement(By.cssSelector("button[title='Save'}"));
+        savePlaylist.click();
+        Thread.sleep(5000);
+}
+public String getNotificationText() {
+        WebElement notification = driver.findElement(By.cssSelector("div.success.show"));
+        return notification.getText();
+}
 }
