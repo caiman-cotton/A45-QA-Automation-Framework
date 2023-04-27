@@ -9,9 +9,13 @@ import java.time.Duration;
 
 public class Homework16Test extends BaseTest{
     @Test
-    public  void registrationNavigation() {
+    public static void registrationNavigation() {
         //stuff to make the test work in Chrome
-     launchChrome();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+
+    WebDriver driver = new ChromeDriver(options);
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     String url = "https://bbb.testpro.io/";
     driver.get(url);
