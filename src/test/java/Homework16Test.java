@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class Homework16Test extends BaseTest{
     @Test
-    public static void registrationNavigation() {
+    public  void registrationNavigation() {
         //stuff to make the test work in Chrome
      launchChrome();
 
