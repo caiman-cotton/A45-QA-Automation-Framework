@@ -34,7 +34,7 @@ public class BaseTest {
     public static void goToPage() {
         driver.get(link);
     }
-    public static void logInEmail(String email) {
+    public static void inputEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
         emailField.click();
         emailField.clear();
@@ -55,6 +55,11 @@ public void searchSongTitle(String songTitle) throws InterruptedException {
         searchSong.click();
                 searchSong.sendKeys(songTitle);
                 Thread.sleep(5000);
+}
+public void clickViewAllBtn() throws InterruptedException {
+        WebElement viewAllBtn = driver.findElement(By.cssSelector("div.results section.songs h1 button"));
+        viewAllBtn.click();
+        Thread.sleep(5000);
 }
 public void selectFirstSongBySearch() throws InterruptedException {
         WebElement firstSongResult = driver.findElement(By.cssSelector("section#songResultsWrapper tr.song-item td.title"));
