@@ -51,7 +51,7 @@ public class BaseTest {
         submitBtn.click();
     }
 public void searchSongTitle(String songTitle) throws InterruptedException {
-        WebElement searchSong = driver.findElement(By.cssSelector("div#searchForm input[type='search']"));
+        WebElement searchSong = driver.findElement(By.cssSelector("input[type='search']"));
         searchSong.click();
                 searchSong.sendKeys(songTitle);
                 Thread.sleep(5000);
