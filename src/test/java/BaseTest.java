@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.testng.annotations.Parameters;
 
 
 public class BaseTest {
@@ -26,7 +27,14 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-
+@Parameters({"BaseURL"})
+    public void logInMeToKoel(String BaseURL) {
+       link = BaseURL;
+        driver.get(BaseURL);
+        inputEmail("caiman.cotton@testpro.io");
+        inputPassword("te$t$tudent");
+        clickSubmit();
+}
     @AfterMethod
     public void endTest() {
         driver.quit();
@@ -92,5 +100,9 @@ public String getNotificationText() {
     public boolean isSongPlaying() {
         WebElement soundImage = driver.findElement(By.cssSelector("div[data-testid='sound-bar-play']"));
         return soundImage.isDisplayed();
+    }
+    public void createPlaylist() {
+        WebElement playlistCreationBtn = driver.findElement(By.cssSelector("i[data-testid='sidebar-create-playlist-btn']"));
+        playlistCreationBtn.click();
     }
 }
