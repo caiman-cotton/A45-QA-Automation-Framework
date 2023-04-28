@@ -9,7 +9,7 @@ import java.time.Duration;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 import org.testng.annotations.Parameters;
-
+import org.openqa.selenium.Keys;
 
 public class BaseTest {
     public static WebDriver driver = null;
@@ -101,8 +101,32 @@ public String getNotificationText() {
         WebElement soundImage = driver.findElement(By.cssSelector("div[data-testid='sound-bar-play']"));
         return soundImage.isDisplayed();
     }
-    public void createPlaylist() {
+    public void createPlaylist(String nameOfPlaylist) throws InterruptedException {
         WebElement playlistCreationBtn = driver.findElement(By.cssSelector("i[data-testid='sidebar-create-playlist-btn']"));
         playlistCreationBtn.click();
+        Thread.sleep(2000);
+        WebElement newPlaylistCreation = driver.findElement(By.cssSelector("li[data-testid='playlist-context-menu-create-simple']"));
+        newPlaylistCreation.click();
+        WebElement fieldNamePlaylist = driver.findElement(By.xpath("//section[@id='playlists']//input[@name='name']"));
+        fieldNamePlaylist.click();
+        fieldNamePlaylist.sendKeys(nameOfPlaylist);
+        fieldNamePlaylist.sendKeys(Keys.ENTER);
+        Thread.sleep(5000);
     }
+    public void clickPlaylistName(String nameOfPlaylist) throws InterruptedException {
+        WebElement myPlaylist = driver.findElement(By.xpath("//section[@id='playlists']//a[contains(text(), '" + nameOfPlaylist + "')]"));
+        myPlaylist.click();
+        Thread.sleep(5000);
+    }
+    public void deleteThePlaylist() throws InterruptedException {
+        WebElement playlistDeleteBtn = driver.findElement(By.cssSelector("button[class='del btn-delete-playlist']"));
+        playlistDeleteBtn.click();
+        Thread.sleep(1000);
+    }
+    public void clickHome() throws InterruptedException {
+        WebElement homeBtn = driver.findElement(By.cssSelector("//nav[@id='sidebar']//a[@class='home']"));
+        homeBtn.click();
+        Thread.sleep(2000);
+    }
+
 }
