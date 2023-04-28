@@ -90,6 +90,7 @@ public String getNotificationText() {
         Thread.sleep(2000);
     }
     public boolean isSongPlaying() {
-        WebElement soundImage = driver.findElement(By.cssSelector(""))
+        WebElement soundImage = driver.findElement(By.cssSelector("div[data-testid='sound-bar-play']"));
+        return soundImage.isD
     }
 }
