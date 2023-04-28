@@ -124,7 +124,7 @@ public String getNotificationText() {
         Thread.sleep(1000);
     }
     public void clickHome() throws InterruptedException {
-        WebElement homeBtn = driver.findElement(By.cssSelector("//nav[@id='sidebar']//a[@class='home']"));
+        WebElement homeBtn = driver.findElement(By.xpath("//nav[@id='sidebar']//a[@class='home']"));
         homeBtn.click();
         Thread.sleep(2000);
     }
