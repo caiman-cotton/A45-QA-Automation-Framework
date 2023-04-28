@@ -80,7 +80,7 @@ public String getNotificationText() {
         WebElement notification = driver.findElement(By.cssSelector("div.success.show"));
         return notification.getText();
 }
-    public void playSong() throws InterruptedException {
+    public void playASong() throws InterruptedException {
         WebElement playNextBtn = driver.findElement(By.cssSelector("i[data-testid='play-next-btn']"));
 
         WebElement playBtn = driver.findElement(By.cssSelector("span[data-testid='play-btn']"));
@@ -91,6 +91,6 @@ public String getNotificationText() {
     }
     public boolean isSongPlaying() {
         WebElement soundImage = driver.findElement(By.cssSelector("div[data-testid='sound-bar-play']"));
-        return soundImage.isD
+        return soundImage.isDisplayed();
     }
 }
