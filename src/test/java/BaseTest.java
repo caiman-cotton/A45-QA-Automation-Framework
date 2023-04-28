@@ -71,13 +71,10 @@ public void clickAddToBtn() throws InterruptedException {
         addToBtn.click();
         Thread.sleep(5000);
 }
-public void addToPlaylist(String playlist) throws InterruptedException {
-        WebElement createPlaylist = driver.findElement(By.cssSelector("section#songResultsWrapper input[type='text']"));
-        createPlaylist.click();
-        createPlaylist.sendKeys(playlist);
-        WebElement savePlaylist = driver.findElement(By.cssSelector("section#songResultsWrapper button[type='submit']"));
-        savePlaylist.click();
-        Thread.sleep(5000);
+public void addToPlaylist() throws InterruptedException {
+        WebElement ourPlaylist = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//li[contains(text(), 'playlist')]"));
+        ourPlaylist.click();
+        Thread.sleep(2000);
 }
 public String getNotificationText() {
         WebElement notification = driver.findElement(By.cssSelector("div.success.show"));
