@@ -60,9 +60,10 @@ public class BaseTest {
         passwordField.clear();
         passwordField.sendKeys(password);
     }
-    public static void clickSubmit() {
+    public void clickSubmit() {
         WebElement submitBtn = driver.findElement(By.cssSelector("button[type='submit']"));
         submitBtn.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[id='main']")));
     }
 public void searchSongTitle(String songTitle) {
         WebElement searchSong = driver.findElement(By.cssSelector("input[type='search']"));
