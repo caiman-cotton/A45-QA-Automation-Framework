@@ -3,7 +3,7 @@ import org.testng.Assert;
 
 public class Homework19Test extends BaseTest {
     @Test
-    public void deletePlaylist() throws InterruptedException {
+    public void deletePlaylist() {
        String deletedPlaylistText =  "Deleted playlist \"DeleteThis.\"";
         logInMeToKoel();
         //create a playlist so we can delete it
