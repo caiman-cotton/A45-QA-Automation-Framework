@@ -45,9 +45,7 @@ public class BaseTest {
     public void endTest() {
         driver.quit();
     }
-    public static void goToPage() {
-        driver.get(link);
-    }
+
     public static void inputEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
         emailField.click();
