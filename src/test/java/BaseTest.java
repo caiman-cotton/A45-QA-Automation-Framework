@@ -133,5 +133,10 @@ public String getNotificationText() {
         WebElement homeBtn = driver.findElement(By.xpath("//nav[@id='sidebar']//a[@class='home']"));
         homeBtn.click();
     }
+    public void clickRegistrationLink() {
 
+        WebElement registrationLink = driver.findElement(By.cssSelector("a[type='submit']"));
+        registrationLink.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[value='Register']")));
+    }
 }
