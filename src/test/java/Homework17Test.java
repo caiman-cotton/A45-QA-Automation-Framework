@@ -2,9 +2,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 public class Homework17Test extends BaseTest{
     @Test
-    public void addSongToPlaylist() throws InterruptedException {
+    public void addSongToPlaylist() {
         String newSongAddedNotificationText = "Added 1 song into \"playlist.\"";
-launchChrome();
 goToPage();
 inputEmail("caiman.cotton@testpro.io");
 inputPassword("te$t$tudent");
@@ -15,7 +14,6 @@ selectFirstSongBySearch();
 clickAddToBtn();
 addToPlaylist();
 Assert.assertTrue(getNotificationText().contains(newSongAddedNotificationText));
-endTest();
 
         }
     }
