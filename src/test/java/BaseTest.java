@@ -134,6 +134,7 @@ public String getNotificationText() {
     public void clickHome() {
         WebElement homeBtn = driver.findElement(By.xpath("//nav[@id='sidebar']//a[@class='home']"));
         homeBtn.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='home active']")));
     }
     public void clickRegistrationLink() {
 

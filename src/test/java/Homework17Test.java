@@ -4,7 +4,6 @@ public class Homework17Test extends BaseTest{
     @Test
     public void addSongToPlaylist() {
         String newSongAddedNotificationText = "Added 1 song into \"playlist.\"";
-goToPage();
 inputEmail("caiman.cotton@testpro.io");
 inputPassword("te$t$tudent");
 clickSubmit();
