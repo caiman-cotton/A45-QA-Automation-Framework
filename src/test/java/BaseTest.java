@@ -39,6 +39,7 @@ public class BaseTest {
         inputEmail("caiman.cotton@testpro.io");
         inputPassword("te$t$tudent");
         clickSubmit();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[id='main']")));
 }
     @AfterMethod
     public void endTest() {
