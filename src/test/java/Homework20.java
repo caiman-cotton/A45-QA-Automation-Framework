@@ -1,3 +1,8 @@
+/*This is basically a copy of BaseTest. I got rid of implicit waits
+* and Thread.sleep() methods, replacing them with explicit waits
+* where needed in the code. I am presenting this in its own file
+* for the Homework. I think that's what we were supposed to do.
+* If I have misunderstood the assignment, please let me know!! */
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
