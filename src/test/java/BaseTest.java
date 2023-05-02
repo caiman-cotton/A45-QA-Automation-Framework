@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -18,6 +19,7 @@ public class BaseTest {
     public static WebDriver driver;
     public static String link;
     WebDriverWait wait;
+    Actions actions;
 
     @BeforeSuite
     static void setupClass() {
@@ -33,6 +35,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.get(link);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        actions = new Actions(driver);
     }
 
     public void logInMeToKoel() {
@@ -139,5 +142,19 @@ public String getNotificationText() {
         WebElement registrationLink = driver.findElement(By.cssSelector("a[type='submit']"));
         registrationLink.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[value='Register']")));
+    }
+    public void clickDoublePlaylist(String playlistName) {
+        WebElement myPlaylistName = driver.findElement(By.xpath("//section[@id='playlists']//a[contains(text(), '" + playlistName + "')]"));
+        actions.doubleClick(myPlaylistName).perform();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='playlists']//input[@type='text']")));
+    }
+    public void renameThePlaylist(String renamedPlaylist) {
+        WebElement newName = driver.findElement(By.xpath("//section[@id='playlists']//input[@type='text']"));
+        newName.click();
+        newName.clear();
+        newName.sendKeys(renamedPlaylist);
+        newName.sendKeys(Keys.ENTER);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+
     }
 }
