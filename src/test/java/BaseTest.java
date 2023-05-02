@@ -146,10 +146,10 @@ public String getNotificationText() {
     public void clickDoublePlaylist(String playlistName) {
         WebElement myPlaylistName = driver.findElement(By.xpath("//section[@id='playlists']//a[contains(text(), '" + playlistName + "')]"));
         actions.doubleClick(myPlaylistName).perform();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='playlists']//input[@type='text']")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='name']")));
     }
     public void renameThePlaylist(String renamedPlaylist) {
-        WebElement newName = driver.findElement(By.xpath("//section[@id='playlists']//input[@type='text']"));
+        WebElement newName = driver.findElement(By.cssSelector("[name='name']"));
         newName.clear();
         newName.sendKeys(renamedPlaylist);
         newName.sendKeys(Keys.ENTER);
