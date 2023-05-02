@@ -150,7 +150,6 @@ public String getNotificationText() {
     }
     public void renameThePlaylist(String renamedPlaylist) {
         WebElement newName = driver.findElement(By.xpath("//section[@id='playlists']//input[@type='text']"));
-        newName.click();
         newName.clear();
         newName.sendKeys(renamedPlaylist);
         newName.sendKeys(Keys.ENTER);
