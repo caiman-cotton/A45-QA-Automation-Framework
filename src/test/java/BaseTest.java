@@ -146,7 +146,7 @@ public String getNotificationText() {
     public void renameThePlaylistWithDoubleClick(String playlistName, String renamedPlaylist) {
         WebElement myPlaylistName = driver.findElement(By.xpath("//section[@id='playlists']//a[contains(text(), '" + playlistName + "')]"));
         actions.doubleClick(myPlaylistName).perform();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='active']")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[class='active']")));
         myPlaylistName.clear();
         myPlaylistName.sendKeys(renamedPlaylist);
         myPlaylistName.sendKeys(Keys.ENTER);
