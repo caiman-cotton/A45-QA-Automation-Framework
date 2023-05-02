@@ -143,16 +143,12 @@ public String getNotificationText() {
         registrationLink.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[value='Register']")));
     }
-    public void clickDoublePlaylist(String playlistName) {
+    public void renameThePlaylistWithDoubleClick(String playlistName, String renamedPlaylist) {
         WebElement myPlaylistName = driver.findElement(By.xpath("//section[@id='playlists']//a[contains(text(), '" + playlistName + "')]"));
         actions.doubleClick(myPlaylistName).perform();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='name']")));
-    }
-    public void renameThePlaylist(String renamedPlaylist) {
-        WebElement newName = driver.findElement(By.cssSelector("[name='name']"));
-        newName.clear();
-        newName.sendKeys(renamedPlaylist);
-        newName.sendKeys(Keys.ENTER);
+        myPlaylistName.clear();
+        myPlaylistName.sendKeys(renamedPlaylist);
+        myPlaylistName.sendKeys(Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
 
     }
