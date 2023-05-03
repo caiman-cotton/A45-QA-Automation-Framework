@@ -147,7 +147,7 @@ public String getNotificationText() {
         WebElement myPlaylistName = driver.findElement(By.xpath("//section[@id='playlists']//a[contains(text(), '" + playlistName + "')]"));
         actions.doubleClick(myPlaylistName).perform();
         WebElement playlistNameInputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='name']")));
-        playlistNameInputField.clear();
+        playlistNameInputField.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE));
         playlistNameInputField.sendKeys(renamedPlaylist);
         playlistNameInputField.sendKeys(Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
