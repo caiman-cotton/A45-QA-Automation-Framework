@@ -42,7 +42,7 @@ public class BaseTest {
         inputEmail("caiman.cotton@testpro.io");
         inputPassword("te$t$tudent");
         clickSubmit();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[id='main']")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("i[data-testid='sidebar-create-playlist-btn']")));
 }
     @AfterMethod
     public void endTest() {
