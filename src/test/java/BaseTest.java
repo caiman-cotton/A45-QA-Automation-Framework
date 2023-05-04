@@ -34,7 +34,7 @@ public class BaseTest {
         link = BaseURL;
         driver = new ChromeDriver(options);
         driver.get(link);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         actions = new Actions(driver);
     }
 
@@ -64,7 +64,7 @@ public class BaseTest {
     public void clickSubmit() {
         WebElement submitBtn = driver.findElement(By.cssSelector("button[type='submit']"));
         submitBtn.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[id='main']")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("i[data-testid='sidebar-create-playlist-btn']")));
     }
 public void searchSongTitle(String songTitle) {
         WebElement searchSong = driver.findElement(By.cssSelector("input[type='search']"));
