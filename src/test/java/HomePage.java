@@ -8,21 +8,21 @@ public class HomePage extends BasePage{
         super(givenDriver);
     }
     //locators
-   By homeBtn = By.xpath("//nav[@id='sidebar']//a[@class='home']");
-    By playNextBtn = By.cssSelector("i[data-testid='play-next-btn']");
-    By playBtn = By.cssSelector("span[data-testid='play-btn']");
-    By soundImage = By.cssSelector("div[data-testid='sound-bar-play']");
-    By playlistCreationBtn = By.cssSelector("i[data-testid='sidebar-create-playlist-btn']");
-    By newPlaylistCreation = By.cssSelector("li[data-testid='playlist-context-menu-create-simple']");
-    By fieldNamePlaylist = By.xpath("//section[@id='playlists']//input[@name='name']");
-    By playlistDeleteBtn = By.cssSelector("button[class='del btn-delete-playlist']");
-    By songSearch = By.cssSelector("input[type='search']");
-    By viewAllBtn = By.cssSelector("div.results section.songs h1 button");
-    By firstSongResult = By.cssSelector("section#songResultsWrapper tr.song-item td.title");
-    By addToBtn = By.cssSelector("button.btn-add-to");
-    By ourPlaylist = By.xpath("//section[@id='songResultsWrapper']//li[contains(text(), 'playlist')]");
-    By notification = By.cssSelector("div.success.show");
-    By playlistNameInputField = By.cssSelector("[name='name']");
+   private By homeBtn = By.xpath("//nav[@id='sidebar']//a[@class='home']");
+   private By playNextBtn = By.cssSelector("i[data-testid='play-next-btn']");
+   private By playBtn = By.cssSelector("span[data-testid='play-btn']");
+   private By soundImage = By.cssSelector("div[data-testid='sound-bar-play']");
+   private By playlistCreationBtn = By.cssSelector("i[data-testid='sidebar-create-playlist-btn']");
+   private By newPlaylistCreation = By.cssSelector("li[data-testid='playlist-context-menu-create-simple']");
+   private By fieldNamePlaylist = By.xpath("//section[@id='playlists']//input[@name='name']");
+   private By playlistDeleteBtn = By.cssSelector("button[class='del btn-delete-playlist']");
+   private By songSearch = By.cssSelector("input[type='search']");
+   private By viewAllBtn = By.cssSelector("div.results section.songs h1 button");
+   private By firstSongResult = By.cssSelector("section#songResultsWrapper tr.song-item td.title");
+   private By addToBtn = By.cssSelector("button.btn-add-to");
+   private By ourPlaylist = By.xpath("//section[@id='songResultsWrapper']//li[contains(text(), 'playlist')]");
+   private By notification = By.cssSelector("div.success.show");
+   private  By playlistNameInputField = By.cssSelector("[name='name']");
 
     public void searchSongTitle(String songTitle) {
         findElement(songSearch).click();
