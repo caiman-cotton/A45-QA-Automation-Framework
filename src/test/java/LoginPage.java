@@ -33,7 +33,7 @@ public class LoginPage extends BasePage{
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("i[data-testid='sidebar-create-playlist-btn']")));
     }
     public void clickRegistrationLink() {
-        findElement(registrationLink).click()
+        findElement(registrationLink).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[value='Register']")));
     }
 }
