@@ -18,8 +18,6 @@ public class HomePage extends BasePage {
     private WebElement playNextBtn;
     @FindBy(css="span[data-testid='play-btn']")
     private WebElement playBtn;
-    @FindBy(css="div[data-testid='sound-bar-play']")
-    private WebElement soundImage;
     @FindBy(css="i[data-testid='sidebar-create-playlist-btn']")
     private WebElement playlistCreationBtn;
     @FindBy(css="li[data-testid='playlist-context-menu-create-simple']")
@@ -38,45 +36,43 @@ public class HomePage extends BasePage {
     private WebElement addToBtn;
     @FindBy(xpath="//section[@id='songResultsWrapper']//li[contains(text(), 'playlist')]")
     private WebElement ourPlaylist;
-    @FindBy(css="div.success.show")
-    private WebElement notification;
     @FindBy(css="[name='name']")
     private WebElement playlistNameInputField;
 
-    public void searchSongTitle(String songTitle) {
+    public HomePage searchSongTitle(String songTitle) {
         songSearch.click();
         songSearch.sendKeys(songTitle);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.results section.songs h1 button")));
+        return this;
     }
-    public void clickViewAllBtn() {
+    public HomePage clickViewAllBtn() {
         viewAllBtn.click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("section#songResultsWrapper tr.song-item td.title")));
+        return this;
     }
-    public void selectFirstSongBySearch() {
+    public HomePage selectFirstSongBySearch() {
         firstSongResult.click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("button.btn-add-to")));
+        return this;
     }
-    public void clickAddToBtn() {
+    public HomePage clickAddToBtn() {
         addToBtn.click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//section[@id='songResultsWrapper']//li[contains(text(), 'playlist')]")));
+        return this;
     }
-    public void addToPlaylist() {
+    public HomePage addToPlaylist() {
         ourPlaylist.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+        return this;
     }
-    public String getNotificationText() {
-        return notification.getText();
-    }
-    public void playASong() {
+    public HomePage playASong() {
         playNextBtn.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span[data-testid='play-btn']")));
         playBtn.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[data-testid='sound-bar-play']")));
+        return this;
     }
-    public boolean isSongPlaying() {
-        return soundImage.isDisplayed();
-    }
-    public void createPlaylist(String nameOfPlaylist) {
+    public HomePage createPlaylist(String nameOfPlaylist) {
         playlistCreationBtn.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li[data-testid='playlist-context-menu-create-simple']")));
         newPlaylistCreation.click();
@@ -85,25 +81,30 @@ public class HomePage extends BasePage {
         fieldNamePlaylist.sendKeys(Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.success.show")));
+        return this;
     }
-    public void clickPlaylistName(String nameOfPlaylist) {
+    public HomePage clickPlaylistName(String nameOfPlaylist) {
         findElement(By.xpath("//section[@id='playlists']//a[contains(text(), '" + nameOfPlaylist + "')]")).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='del btn-delete-playlist']")));
+        return this;
     }
-    public void deleteThePlaylist() {
+    public HomePage deleteThePlaylist() {
         playlistDeleteBtn.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+        return this;
     }
-    public void clickHome() {
+    public HomePage clickHome() {
         homeBtn.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='home active']")));
+        return this;
     }
-    public void renameThePlaylistWithDoubleClick(String playlistName, String renamedPlaylist) {
+    public HomePage renameThePlaylistWithDoubleClick(String playlistName, String renamedPlaylist) {
         actions.doubleClick(findElement(By.xpath("//section[@id='playlists']//a[contains(text(), '" + playlistName + "')]"))).perform();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='name']")));
         playlistNameInputField.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE));
         playlistNameInputField.sendKeys(renamedPlaylist);
         playlistNameInputField.sendKeys(Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+        return this;
     }
 }

@@ -20,28 +20,33 @@ public class LoginPage extends BasePage{
     @FindBy(css="a[type='submit']")
     private WebElement registrationLink;
 
-    public void inputEmail(String email) {
+    public LoginPage inputEmail(String email) {
         emailField.click();
         emailField.clear();
         emailField.sendKeys(email);
+        return this;
     }
-    public void inputPassword(String password) {
+    public LoginPage inputPassword(String password) {
         passwordField.click();
         passwordField.clear();
         passwordField.sendKeys(password);
+        return this;
     }
-    public void clickSubmitBtn() {
+    public LoginPage clickSubmitBtn() {
         submitBtn.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("i[data-testid='sidebar-create-playlist-btn']")));
+        return this;
     }
-    public void logInMeToKoel() {
+    public LoginPage logInMeToKoel() {
         inputEmail("caiman.cotton@testpro.io");
         inputPassword("te$t$tudent");
         clickSubmitBtn();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("i[data-testid='sidebar-create-playlist-btn']")));
+        return this;
     }
-    public void clickRegistrationLink() {
+    public LoginPage clickRegistrationLink() {
         registrationLink.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[value='Register']")));
+        return this;
     }
 }
