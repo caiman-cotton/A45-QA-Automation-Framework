@@ -1,0 +1,22 @@
+/*With no specific instructions for a test, I am presenting the same test as last time,
+but with fluency chaining added in, referencing the FactoryPages which now replace the previous Pages.
+ */
+import FactoryPages.HomePage;
+import FactoryPages.LoginPage;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class Homework23Test extends BaseTest{
+    @Test
+    public void renamePlaylist() {
+        String notificationText = "Updated playlist \"newName.\"";
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.logInMeToKoel();
+        homePage.createPlaylist("renameThis")
+        .renameThePlaylistWithDoubleClick("renameThis", "newName");
+        Assert.assertEquals(notificationText, getNotificationText());
+        homePage.deleteThePlaylist();
+    }
+}
