@@ -30,7 +30,7 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public void launchChrome(String BaseURL) {
+    public void launchBrowser(String BaseURL) {
         link = BaseURL;
         driver = pickBrowser(System.getProperty("browser"));
         driver.get(link);
