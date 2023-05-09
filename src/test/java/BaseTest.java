@@ -39,17 +39,20 @@ public class BaseTest {
     }
     public static WebDriver pickBrowser(String browser) {
         switch (browser) {
-            case "MicrosoftEdge":
+            case "MicrosoftEdge" -> {
                 WebDriverManager.edgedriver().setup();
                 return driver = new EdgeDriver();
-            case "firefox":
+            }
+            case "firefox" -> {
                 WebDriverManager.firefoxdriver().setup();
                 return driver = new FirefoxDriver();
-            default:
+            }
+            default -> {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
                 return driver = new ChromeDriver();
+            }
         }
     }
 
