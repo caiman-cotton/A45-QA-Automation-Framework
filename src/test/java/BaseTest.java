@@ -48,6 +48,8 @@ public class BaseTest {
     public WebDriver getDriver() {
         return threadDriver.get();
     }
+    // username: caiman.cotton
+    // security key: yvq5sloHr2M8GO9rojpOdzEj4Wjt2rgJYSrWqzeqtpM60pkVTE
     public static WebDriver pickBrowser(String browser) {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL = "http://192.168.0.14:4444";
@@ -94,7 +96,20 @@ public class BaseTest {
             }
         }
     }
-
+    public void lambdaTest() {
+        String username = "caiman.cotton";
+        String accessToken = "yvq5sloHr2M8GO9rojpOdzEj4Wjt2rgJYSrWqzeqtpM60pkVTE";
+        ChromeOptions browserOptions = new ChromeOptions();
+        browserOptions.setPlatformName("Windows 10");
+        browserOptions.setBrowserVersion("114.0");
+        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+        ltOptions.put("username", username);
+        ltOptions.put("accessKey", accessToken);
+        ltOptions.put("project", "Untitled");
+        ltOptions.put("selenium_version", "4.0.0");
+        ltOptions.put("w3c", true);
+        browserOptions.setCapability("LT:Options", ltOptions);
+    }
 
     public void logInMeToKoel() {
         inputEmail("caiman.cotton@testpro.io");
