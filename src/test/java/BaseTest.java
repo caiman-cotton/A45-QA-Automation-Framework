@@ -42,8 +42,8 @@ public class BaseTest {
         driver = pickBrowser(System.getProperty("browser"));
         threadDriver.set(driver);
         getDriver().get(link);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        actions = new Actions(driver);
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+        actions = new Actions(getDriver());
     }
     public WebDriver getDriver() {
         return threadDriver.get();
@@ -56,24 +56,24 @@ public class BaseTest {
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
                 edgeOptions.addArguments("--remote-allow-origins=*");
-                return getDriver() = new EdgeDriver(edgeOptions);
+                return driver = new EdgeDriver(edgeOptions);
             }
             case "grid-edge" -> {
                 caps.setCapability("browserName", "MicrosoftEdge");
                 try {
-                    return getDriver() = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+                    return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
                 } catch (MalformedURLException e) {
                     throw new RuntimeException(e);
                 }
             }
             case "firefox" -> {
                 WebDriverManager.firefoxdriver().setup();
-                return getDriver() = new FirefoxDriver();
+                return driver = new FirefoxDriver();
             }
             case "grid-firefox" -> {
                 caps.setCapability("browserName", "firefox");
                 try {
-                    return getDriver() = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+                    return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
                 } catch (MalformedURLException e) {
                     throw new RuntimeException(e);
                 }
@@ -81,7 +81,7 @@ public class BaseTest {
             case "grid-chrome" -> {
                 caps.setCapability("browserName", "chrome");
                 try {
-                    return getDriver() = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+                    return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
                 } catch (MalformedURLException e) {
                     throw new RuntimeException(e);
                 }
@@ -90,7 +90,7 @@ public class BaseTest {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
-                return getDriver() = new ChromeDriver(options);
+                return driver = new ChromeDriver(options);
             }
         }
     }
