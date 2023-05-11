@@ -10,8 +10,8 @@ public class Homework23Test extends BaseTest{
     @Test
     public void renamePlaylist() {
         String notificationText = "Updated playlist \"newName.\"";
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.logInMeToKoel();
         homePage.createPlaylist("renameThis")
