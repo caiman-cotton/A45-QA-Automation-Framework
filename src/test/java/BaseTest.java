@@ -138,7 +138,6 @@ public class BaseTest {
         emailField.clear();
         emailField.sendKeys(email);
     }
-    public WebElement registerButton = driver.findElement(By.cssSelector("input[value='register']"));
     public void inputPassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
         passwordField.click();
