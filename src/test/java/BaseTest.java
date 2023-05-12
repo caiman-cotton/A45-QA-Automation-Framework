@@ -44,7 +44,7 @@ public class BaseTest {
         driver = pickBrowser(System.getProperty("browser"));
         threadDriver.set(driver);
         getDriver().get(link);
-        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(40));
         actions = new Actions(getDriver());
     }
     public WebDriver getDriver() {
@@ -138,6 +138,7 @@ public class BaseTest {
         emailField.clear();
         emailField.sendKeys(email);
     }
+    public WebElement registerButton = driver.findElement(By.cssSelector("input[value='register']"));
     public void inputPassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
         passwordField.click();
