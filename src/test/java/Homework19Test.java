@@ -16,6 +16,6 @@ public class Homework19Test extends BaseTest {
                 .clickHome()
                 .clickPlaylistName("DeleteThis")
                 .deleteThePlaylist();
-        Assert.assertTrue(getNotificationText().contains(deletedPlaylistText));
+        Assert.assertTrue(homePage.getNotificationText().contains(deletedPlaylistText));
     }
 }

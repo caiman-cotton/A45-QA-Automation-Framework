@@ -38,6 +38,10 @@ public class HomePage extends BasePage {
     private WebElement ourPlaylist;
     @FindBy(css="[name='name']")
     private WebElement playlistNameInputField;
+    @FindBy(css="div[data-testid='sound-bar-play']")
+    private WebElement soundImage;
+    @FindBy(css="div.success.show")
+    private WebElement notification;
 
     public HomePage searchSongTitle(String songTitle) {
         songSearch.click();
@@ -106,5 +110,11 @@ public class HomePage extends BasePage {
         playlistNameInputField.sendKeys(Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
         return this;
+    }
+    public boolean isSongPlaying() {
+        return soundImage.isDisplayed();
+    }
+    public String getNotificationText() {
+        return notification.getText();
     }
 }
