@@ -19,7 +19,8 @@ homePage.createPlaylist("playlist")
         .clickAddToBtn()
         .addToPlaylist();
 Assert.assertTrue(getNotificationText().contains(newSongAddedNotificationText));
-homePage.deleteThePlaylist();
+homePage.clickPlaylistName("playlist")
+        .deleteThePlaylist();
         }
     }
 
