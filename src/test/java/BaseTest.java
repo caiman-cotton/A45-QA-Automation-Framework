@@ -20,7 +20,9 @@ import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
 
 public class BaseTest {
     public static WebDriver driver;
@@ -86,6 +88,9 @@ public class BaseTest {
                     throw new RuntimeException(e);
                 }
             }
+            case "cloud" -> {
+                return lambdaTest();
+            }
             default -> {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
@@ -94,21 +99,25 @@ public class BaseTest {
             }
         }
     }
-    public WebDriver lambdaTest() {
+    public static WebDriver lambdaTest() {
         String username = "caiman.cotton";
         String accessToken = "yvq5sloHr2M8GO9rojpOdzEj4Wjt2rgJYSrWqzeqtpM60pkVTE";
-        String hubURL = "@hub.lambdatest.com/wd/hub";
+        String hubURL = "https://hub.lambdatest.com/wd/hub";
         ChromeOptions browserOptions = new ChromeOptions();
         browserOptions.setPlatformName("Windows 10");
         browserOptions.setBrowserVersion("114.0");
-        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+        HashMap<String, Object> ltOptions = new HashMap<>();
         ltOptions.put("username", username);
         ltOptions.put("accessKey", accessToken);
         ltOptions.put("project", "Untitled");
         ltOptions.put("selenium_version", "4.0.0");
         ltOptions.put("w3c", true);
         browserOptions.setCapability("LT:Options", ltOptions);
-        return new RemoteWebDriver(new URL(hubURL), browserOptions);
+        try {
+            return new RemoteWebDriver(new URL(hubURL), browserOptions);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void logInMeToKoel() {
