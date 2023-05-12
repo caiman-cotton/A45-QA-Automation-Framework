@@ -11,13 +11,15 @@ public class Homework17Test extends BaseTest{
 loginPage.inputEmail("caiman.cotton@testpro.io")
         .inputPassword("te$t$tudent")
         .clickSubmitBtn();
-homePage.searchSongTitle("Mid-Air Machine")
+homePage.createPlaylist("playlist")
+        .clickHome()
+        .searchSongTitle("Mid-Air Machine")
         .clickViewAllBtn()
         .selectFirstSongBySearch()
         .clickAddToBtn()
         .addToPlaylist();
 Assert.assertTrue(getNotificationText().contains(newSongAddedNotificationText));
-
+homePage.deleteThePlaylist();
         }
     }
 
