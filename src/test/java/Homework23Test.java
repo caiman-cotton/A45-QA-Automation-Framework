@@ -16,7 +16,7 @@ public class Homework23Test extends BaseTest{
         loginPage.logInMeToKoel();
         homePage.createPlaylist("renameThis")
         .renameThePlaylistWithDoubleClick("renameThis", "newName");
-        Assert.assertEquals(notificationText, getNotificationText());
+        Assert.assertEquals(notificationText, homePage.getNotificationText());
         homePage.deleteThePlaylist();
     }
 }
