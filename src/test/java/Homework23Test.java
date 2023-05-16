@@ -17,6 +17,8 @@ public class Homework23Test extends BaseTest{
         homePage.createPlaylist("renameThis")
         .renameThePlaylistWithDoubleClick("renameThis", "newName");
         Assert.assertEquals(notificationText, homePage.getNotificationText());
-        homePage.deleteThePlaylist();
+        homePage.clickHome()
+                .clickPlaylistName("newName")
+                .deleteThePlaylist();
     }
 }
