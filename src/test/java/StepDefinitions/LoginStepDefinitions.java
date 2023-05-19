@@ -41,14 +41,14 @@ public class LoginStepDefinitions {
         driver.get(link);
     }
     @When("I enter email {string}")
-    public void enterEmail() {
+    public void enterEmail(String email) {
        LoginPage loginPage = new LoginPage(driver);
-       loginPage.inputEmail("caiman.cotton@testpro.io");
+       loginPage.inputEmail(email);
     }
     @And("I enter password {string}")
-    public void enterPassword() {
+    public void enterPassword(String password) {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.inputPassword("te$t$tudent");
+        loginPage.inputPassword(password);
     }
     @And("I click submit button")
     public void clickSubmit() {
