@@ -4,18 +4,24 @@ public class LoginStepDefintions {
     WebDriver driver;
     WebDriver wait;
     String link;
-    @Given("I am on login page")
-    @Parameters({BaseURL})
-    public void getLoginPage() {
+    @Before
+    public void openBrowser() {
         WebDriverManager.chromedriver().setup;
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        link = BaseURL;
-        driver.get(link);
+    }
+    @After
+    public void closeBrowser() {
+        driver.quit();
+    }
 
+    @Given("I am on login page")
+    public void getLoginPage() {
+        link = "https://bbb.testpro.io";
+        driver.get(link);
     }
     @When("I enter email {string}")
     public void enterEmail() {
