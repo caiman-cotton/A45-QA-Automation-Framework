@@ -12,6 +12,6 @@ public class Homework18Test extends BaseTest{
                 .inputPassword("te$t$tudent")
                 .clickSubmitBtn();
         homePage.playASong();
-        Assert.assertTrue(isSongPlaying());
+        Assert.assertTrue(homePage.isSongPlaying());
     }
 }
