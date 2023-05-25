@@ -30,3 +30,15 @@ task testSmoke(type: Test) {
         systemProperty "browser", System.getProperty("browser")
     }
 }
+task testRegression(type: Test) {
+    useTestNG()  {
+        suites "src/test/resources/Regression.xml"
+        systemProperty "browser", System.getProperty("browser")
+    }
+}
+task testCucumber(type: Test) {
+    useTestNG() {
+        suites "src/test/resources/Cucumber.xml"
+        systemProperty "browser", System.getProperty("browser")
+    }
+}
