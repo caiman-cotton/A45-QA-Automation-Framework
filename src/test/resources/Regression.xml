@@ -7,11 +7,14 @@
         <classes>
                         <class name="LoginTests"/>
                         <class name="BaseTest"/>
-                        <class name="registrationLinkTest"/>
-                        <class name="Homework17Test"/>
-                        <class name="Homework18Test"/>
-                        <class name="Homework19Test"/>
-                        <class name="Homework23Test"/>
+                        <class name="RegistrationLinkTest"/>
+                        <class name="LogInNoCredentialsTest"/>
+                        <class name="LogInWrongCredentialsTest"/>
+                        <class name="LogOutTest"/>
+                        <class name="PlaylistDeleteTest"/>
+                        <class name="PlaylistRenameTest"/>
+                        <class name="SongAddsToPlaylistTest"/>
+                        <class name="SongPlaysTest"/>
         </classes>
     </test>
 </suite>
