@@ -8,7 +8,7 @@ public class LogInNoCredentialsTest extends BaseTest {
         String url = "https://bbb.testpro.io/";
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage
-                .clickSubmitBtn();
+                .clickSubmitBtnGoingNowhere();
         Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 }

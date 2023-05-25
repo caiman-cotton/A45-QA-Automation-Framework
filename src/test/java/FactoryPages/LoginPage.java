@@ -54,4 +54,8 @@ public class LoginPage extends BasePage{
     public boolean isLoginFormVisible() {
         return loginForm.isDisplayed();
     }
+    public LoginPage clickSubmitBtnGoingNowhere() {
+        submitBtn.click();
+        return this;
+    }
 }

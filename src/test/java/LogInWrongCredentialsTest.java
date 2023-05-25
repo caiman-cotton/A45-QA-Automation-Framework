@@ -10,7 +10,7 @@ public class LogInWrongCredentialsTest extends BaseTest{
         loginPage
                 .inputEmail("caiman.cotton@testpro.io")
                 .inputPassword("te$tstudent")
-                .clickSubmitBtn();
+                .clickSubmitBtnGoingNowhere();
         Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 }
