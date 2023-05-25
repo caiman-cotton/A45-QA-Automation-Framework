@@ -3,7 +3,7 @@ import FactoryPages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Homework19Test extends BaseTest {
+public class PlaylistDeleteTest extends BaseTest {
     @Test
     public void deletePlaylist() {
        String deletedPlaylistText =  "Deleted playlist \"DeleteThis.\"";

@@ -2,7 +2,7 @@ import FactoryPages.HomePage;
 import FactoryPages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-public class Homework17Test extends BaseTest{
+public class SongAddsToPlaylistTest extends BaseTest{
     @Test
     public void addSongToPlaylist() {
         String newSongAddedNotificationText = "Added 1 song into \"playlist.\"";

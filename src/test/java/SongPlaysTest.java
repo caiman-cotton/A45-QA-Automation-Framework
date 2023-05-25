@@ -3,7 +3,7 @@ import FactoryPages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Homework18Test extends BaseTest{
+public class SongPlaysTest extends BaseTest{
     @Test
     public void playSong() {
         LoginPage loginPage = new LoginPage(getDriver());

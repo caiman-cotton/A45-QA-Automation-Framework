@@ -2,7 +2,7 @@ import FactoryPages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Homework16Test extends BaseTest{
+public class RegistrationLinkTest extends BaseTest{
     @Test
     public void registrationNavigation() {
         LoginPage loginPage = new LoginPage(getDriver());

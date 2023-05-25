@@ -19,6 +19,8 @@ public class LoginPage extends BasePage{
     private WebElement submitBtn;
     @FindBy(css="a[type='submit']")
     private WebElement registrationLink;
+    @FindBy(css="form[data-testid='login-form']")
+    private WebElement loginForm;
 
     public LoginPage inputEmail(String email) {
         emailField.click();
@@ -48,5 +50,8 @@ public class LoginPage extends BasePage{
         registrationLink.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[value='Register']")));
         return this;
+    }
+    public boolean isLoginFormVisible() {
+        return loginForm.isDisplayed();
     }
 }

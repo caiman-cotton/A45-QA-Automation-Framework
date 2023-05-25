@@ -6,7 +6,7 @@ import FactoryPages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Homework23Test extends BaseTest{
+public class PlaylistRenameTest extends BaseTest{
     @Test
     public void renamePlaylist() {
         String notificationText = "Updated playlist \"newName.\"";

@@ -42,6 +42,8 @@ public class HomePage extends BasePage {
     private WebElement soundImage;
     @FindBy(css="div.success.show")
     private WebElement notification;
+    @FindBy(css="a.logout.control")
+    private WebElement logOutBtn;
 
     public HomePage searchSongTitle(String songTitle) {
         songSearch.click();
@@ -116,5 +118,10 @@ public class HomePage extends BasePage {
     }
     public String getNotificationText() {
         return notification.getText();
+    }
+    public HomePage clickLogOutBtn() {
+        logOutBtn.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("form[data-testid='login-form']")));
+        return this;
     }
 }
